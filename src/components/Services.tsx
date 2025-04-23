@@ -6,17 +6,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const Services: React.FC = () => {
   const serviceItems = [
     {
-      icon: <Package size={48} className="text-blue-500 mb-4" />,
+      icon: <Package size={48} className="text-[#1bd095] mb-4" />,
       title: "Web Development",
       description: "We build responsive, fast and accessible websites that drive results for your business."
     },
     {
-      icon: <MessageSquare size={48} className="text-blue-500 mb-4" />,
+      icon: <MessageSquare size={48} className="text-[#1bd095] mb-4" />,
       title: "Web Applications",
       description: "Custom web applications designed to streamline your business processes and improve efficiency."
     },
     {
-      icon: <Book size={48} className="text-blue-500 mb-4" />,
+      icon: <Book size={48} className="text-[#1bd095] mb-4" />,
       title: "UI/UX Design",
       description: "User-centric design that enhances user experience and increases conversion rates."
     }
