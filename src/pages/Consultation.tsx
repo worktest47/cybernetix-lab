@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { PhoneCall, Facebook, MessageCircle, Video } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const codingBg =
   "bg-gradient-to-br from-[#1a1f2c] via-[#221f26] to-[#23243d]";
@@ -18,26 +18,35 @@ const contactMethods = [
     label: "WhatsApp",
     value: "whatsapp",
     icon: <MessageCircle size={32} />,
+    placeholder: "Enter your WhatsApp number",
+    field: "whatsappNumber"
   },
   {
     label: "Facebook",
     value: "facebook",
     icon: <Facebook size={32} />,
+    placeholder: "Enter your Facebook username or profile link",
+    field: "facebookContact"
   },
   {
     label: "Zoom",
     value: "zoom",
     icon: <Video size={32} />,
+    placeholder: "Enter your Zoom email or Meeting Link",
+    field: "zoomContact"
   },
   {
     label: "Phone Call",
     value: "phone-call",
     icon: <PhoneCall size={32} />,
+    placeholder: "Enter your phone number",
+    field: "phoneNumber"
   },
 ];
 
 const Consultation: React.FC = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -47,7 +56,6 @@ const Consultation: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  // New "Request a Call" state
   const [showRequestCall, setShowRequestCall] = useState(false);
   const [callForm, setCallForm] = useState({
     name: "",
@@ -55,9 +63,11 @@ const Consultation: React.FC = () => {
     cell: "",
     description: "",
     contactMethod: "",
+    methodContact: "",
   });
   const [callFormTouched, setCallFormTouched] = useState(false);
   const [callFormSubmitted, setCallFormSubmitted] = useState(false);
+  const [showMethodField, setShowMethodField] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -76,7 +86,6 @@ const Consultation: React.FC = () => {
     window.history.length > 1 ? navigate(-1) : navigate("/");
   }
 
-  // For the Request a Call panel
   function handleRequestCallChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
@@ -89,31 +98,42 @@ const Consultation: React.FC = () => {
 
   function handleContactMethodSelect(method: string) {
     setCallFormTouched(true);
-    setCallForm({ ...callForm, contactMethod: method });
+    setCallForm({ ...callForm, contactMethod: method, methodContact: "" });
+    setShowMethodField(true);
   }
 
-  function handleRequestCallSubmit(e: React.FormEvent) {
+  async function handleRequestCallSubmit(e: React.FormEvent) {
     e.preventDefault();
     setCallFormSubmitted(true);
+
+    toast({
+      title: "Request sent",
+      description: `You've requested a call via ${contactMethods.find(x => x.value === callForm.contactMethod)?.label}. We'll be in touch!`,
+    });
+
     setTimeout(() => {
       setShowRequestCall(false);
+      setShowMethodField(false);
       setCallForm({
         name: "",
         surname: "",
         cell: "",
         description: "",
         contactMethod: "",
+        methodContact: "",
       });
       setCallFormSubmitted(false);
       setCallFormTouched(false);
     }, 1200);
   }
 
+  const selectedMethod = contactMethods.find(
+    (m) => m.value === callForm.contactMethod
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1bd095]/10 to-purple-100 px-0 py-0 relative">
-      <Navbar
-        // Add a hover effect by using a custom class if needed in Navbar for future—ensure nav uses bg-[#1bd095] on hover
-      />
+      <Navbar />
       <div className="flex items-center justify-center min-h-screen pt-28 px-4 pb-8">
         <Card className="w-full max-w-xl shadow-xl">
           <CardHeader>
@@ -238,7 +258,6 @@ const Consultation: React.FC = () => {
                   </Button>
                 </div>
               </form>
-              {/* Request a Call Form (shows when button is pressed) */}
               {showRequestCall && (
                 <form
                   className="mt-8 p-6 rounded-xl border shadow-md bg-[#101321]/90 border-[#1bd095]/30"
@@ -307,38 +326,59 @@ const Consultation: React.FC = () => {
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2" style={{ color: mainColor }}>
-                      Preferred Contact Method
-                    </label>
-                    <div className="flex items-center gap-6 mb-4">
-                      {contactMethods.map((method) => (
-                        <button
-                          key={method.value}
-                          type="button"
-                          aria-label={method.label}
-                          onClick={() => handleContactMethodSelect(method.value)}
-                          style={{
-                            borderColor: callForm.contactMethod === method.value ? mainColor : "#27293b",
-                            background: callForm.contactMethod === method.value ? "#1bd09522" : "transparent",
-                            color: callForm.contactMethod === method.value ? mainColor : "#fff",
-                            transition: "all 0.15s",
-                          }}
-                          className={`rounded-full border-2 p-3 flex flex-col items-center shadow-sm hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1bd095]`}
-                        >
-                          <span className="mb-1">
-                            {React.cloneElement(
-                              method.icon as React.ReactElement,
-                              {
-                                color: callForm.contactMethod === method.value ? mainColor : "#aaa",
-                              }
-                            )}
-                          </span>
-                          <span className="text-xs font-medium">{method.label}</span>
-                        </button>
-                      ))}
+                  {!showMethodField && (
+                    <>
+                      <label className="block text-sm font-medium mb-2" style={{ color: mainColor }}>
+                        Preferred Contact Method
+                      </label>
+                      <div className="flex items-center gap-6 mb-4">
+                        {contactMethods.map((method) => (
+                          <button
+                            key={method.value}
+                            type="button"
+                            aria-label={method.label}
+                            onClick={() => handleContactMethodSelect(method.value)}
+                            style={{
+                              borderColor: callForm.contactMethod === method.value ? mainColor : "#27293b",
+                              background: callForm.contactMethod === method.value ? "#1bd09522" : "transparent",
+                              color: callForm.contactMethod === method.value ? mainColor : "#fff",
+                              transition: "all 0.15s",
+                            }}
+                            className={`rounded-full border-2 p-3 flex flex-col items-center shadow-sm hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1bd095]`}
+                          >
+                            <span className="mb-1">
+                              {React.cloneElement(
+                                method.icon as React.ReactElement,
+                                {
+                                  color: callForm.contactMethod === method.value ? mainColor : "#aaa",
+                                }
+                              )}
+                            </span>
+                            <span className="text-xs font-medium">{method.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  {showMethodField && selectedMethod?.field && (
+                    <div className="mb-6">
+                      <label className="block text-sm font-medium mb-1" htmlFor="methodContact" style={{ color: mainColor }}>
+                        {selectedMethod.label} Contact Info
+                      </label>
+                      <Input
+                        id="methodContact"
+                        name="methodContact"
+                        type="text"
+                        placeholder={selectedMethod.placeholder}
+                        value={callForm.methodContact}
+                        onChange={handleRequestCallChange}
+                        className="bg-transparent text-white placeholder:text-gray-400 border-[#1bd095] focus:border-[#14ad78]"
+                        required
+                      />
                     </div>
-                  </div>
+                  )}
+
                   <Button
                     type="submit"
                     className="w-full text-white text-lg mt-2"
@@ -352,7 +392,8 @@ const Consultation: React.FC = () => {
                       !callForm.surname ||
                       !callForm.cell ||
                       !callForm.description ||
-                      !callForm.contactMethod
+                      !callForm.contactMethod ||
+                      !callForm.methodContact
                     }
                   >
                     {callFormSubmitted ? "Request Sent!" : "Submit Request"}
