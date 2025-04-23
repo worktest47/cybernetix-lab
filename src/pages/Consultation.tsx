@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import { PhoneCall, Whatsapp, Facebook, Zoom } from "lucide-react";
+import { PhoneCall, Facebook, MessageCircle, Video } from "lucide-react";
 
 const codingBg =
   "bg-gradient-to-br from-[#1a1f2c] via-[#221f26] to-[#23243d]";
@@ -17,7 +17,7 @@ const contactMethods = [
   {
     label: "WhatsApp",
     value: "whatsapp",
-    icon: <Whatsapp size={32} />,
+    icon: <MessageCircle size={32} />,
   },
   {
     label: "Facebook",
@@ -27,7 +27,7 @@ const contactMethods = [
   {
     label: "Zoom",
     value: "zoom",
-    icon: <Zoom size={32} />,
+    icon: <Video size={32} />,
   },
   {
     label: "Phone Call",
