@@ -57,9 +57,9 @@ const Navbar: React.FC = () => {
                 to={item.to}
                 smooth={true}
                 duration={500}
-                className="text-gray-800 hover:text-blue-500 transition-colors cursor-pointer font-medium"
+                className="text-gray-800 hover:text-[#1bd095] transition-colors cursor-pointer font-medium"
                 spy={true}
-                activeClass="text-blue-500 font-semibold"
+                activeClass="text-[#1bd095] font-semibold"
                 offset={-80}
               >
                 {item.name}
@@ -78,9 +78,9 @@ const Navbar: React.FC = () => {
                   to={item.to}
                   smooth={true}
                   duration={500}
-                  className="text-gray-800 hover:text-blue-500 transition-colors cursor-pointer py-2 font-medium"
+                  className="text-gray-800 hover:text-[#1bd095] transition-colors cursor-pointer py-2 font-medium"
                   spy={true}
-                  activeClass="text-blue-500 font-semibold"
+                  activeClass="text-[#1bd095] font-semibold"
                   offset={-80}
                   onClick={() => setIsOpen(false)}
                 >
@@ -96,3 +96,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
