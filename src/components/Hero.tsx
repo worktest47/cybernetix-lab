@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +38,7 @@ const Hero: React.FC = () => {
             Let’s create your next project together.
           </p>
           <Button
-            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-6 rounded-md text-lg font-medium transition-all transform hover:scale-105 shadow-lg"
+            className="bg-[#1bd095] hover:bg-[#14ad78] text-white px-8 py-6 rounded-md text-lg font-medium transition-all transform hover:scale-105 shadow-lg"
             onClick={handleConsultation}
           >
             Book a Free Consultation

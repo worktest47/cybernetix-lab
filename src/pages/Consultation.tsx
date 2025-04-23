@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 
 const codingBg =
-  "bg-gradient-to-br from-[#1a1f2c] via-[#221f26] to-[#23243d]"; // dark purple/charcoal gradient
+  "bg-gradient-to-br from-[#1a1f2c] via-[#221f26] to-[#23243d]";
 
 const mainColor = "#1bd095";
 
@@ -61,9 +60,7 @@ const Consultation: React.FC = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div
-              className={`rounded-2xl ${codingBg} p-6 md:p-10 border border-[#27293b] shadow-2xl`}
-            >
+            <div className={`rounded-2xl ${codingBg} p-6 md:p-10 border border-[#27293b] shadow-2xl`}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-1" htmlFor="name" style={{ color: mainColor }}>
