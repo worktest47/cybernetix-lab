@@ -1,10 +1,32 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import ScrambledText from "./ScrambledText";
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
+  const [displayText, setDisplayText] = useState('');
+  const fullText = 'Where Code Meets Intelligence';
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    if (charIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => {
+          const nextChar = Math.random() < 0.3 
+            ? fullText[charIndex]
+            : '!@#$%^&*'[Math.floor(Math.random() * 8)];
+          return prev + nextChar;
+        });
+        setCharIndex(charIndex + 1);
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    } else {
+      setDisplayText(fullText);
+    }
+  }, [charIndex]);
 
   const handleConsultation = () => {
     navigate("/consultation");
@@ -23,19 +45,22 @@ const Hero: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            <span className="block text-white mb-3">CyberNetix Lab</span>
-            <span className="text-[#1bd095] text-2xl md:text-3xl font-light block mb-6">
-              Digital DNA for the Next Generation
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+            <ScrambledText tag="span" text="CyberNetix Lab" className="block text-white mb-3" />
+            <span className="text-[#1bd095] text-3xl md:text-4xl font-light block mb-6 font-mono">
+              {displayText}
             </span>
-            <span className="hidden md:block text-lg font-normal text-gray-200">
-              Where Code Meets <span className="text-[#1bd095] font-semibold">Intelligence</span>
-            </span>
+            <ScrambledText
+              tag="span"
+              text="Digital DNA for the Next Generation"
+              className="hidden md:block text-2xl font-normal text-gray-200"
+            />
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8">
-            We build cutting-edge digital solutions that help businesses transform and thrive in the digital landscape.<br className="hidden md:block" />
-            Let's create your next innovative project together.
-          </p>
+          <ScrambledText
+            tag="p"
+            text="We build cutting-edge digital solutions that help businesses transform and thrive in the digital landscape. Let's create your next innovative project together."
+            className="text-xl md:text-2xl text-gray-200 mb-8"
+          />
           <Button
             className="bg-[#1bd095] hover:bg-[#14ad78] text-white px-8 py-6 rounded-md text-lg font-medium 
             transition-all transform hover:scale-105 hover:rotate-1 hover:shadow-[0_0_15px_rgba(27,208,149,0.5)] 

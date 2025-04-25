@@ -25,7 +25,7 @@ const Logo: React.FC = () => {
       <img 
         src="/lovable-uploads/9dae96da-88d1-4256-8a36-56365252c905.png"
         alt="CyberNetix Lab Logo"
-        className="h-12 w-auto transition-all duration-300 group-hover:scale-110 group-hover:rotate-12"
+        className="h-14 w-auto rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12"
       />
       <span className="ml-2 text-xl font-bold">CyberNetix Lab</span>
     </button>
