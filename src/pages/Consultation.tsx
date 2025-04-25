@@ -134,7 +134,15 @@ const Consultation: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1bd095]/10 to-purple-100 px-0 py-0 relative">
       <Navbar />
-      <div className="flex items-center justify-center min-h-screen pt-28 px-4 pb-8">
+      <div 
+        className="flex items-center justify-center min-h-screen pt-28 px-4 pb-8"
+        style={{
+          background: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
+      >
         <Card className="w-full max-w-xl shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl md:text-3xl text-center" style={{ color: mainColor }}>

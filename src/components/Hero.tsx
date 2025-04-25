@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            <span className="block text-white mb-3">Dev Labs</span>
+            <span className="block text-white mb-3">CyberNetix Lab</span>
             <span className="text-[#1bd095] text-2xl md:text-3xl font-light block mb-6">
               Digital DNA for the Next Generation
             </span>
@@ -37,10 +37,16 @@ const Hero: React.FC = () => {
             Let's create your next innovative project together.
           </p>
           <Button
-            className="bg-[#1bd095] hover:bg-[#14ad78] text-white px-8 py-6 rounded-md text-lg font-medium transition-all transform hover:scale-105 shadow-lg"
+            className="bg-[#1bd095] hover:bg-[#14ad78] text-white px-8 py-6 rounded-md text-lg font-medium 
+            transition-all transform hover:scale-105 hover:rotate-1 hover:shadow-[0_0_15px_rgba(27,208,149,0.5)] 
+            relative overflow-hidden group
+            before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#1bd095] before:to-[#14ad78] 
+            before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100
+            after:absolute after:inset-0 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDAgQzY5LjEgMCA0NCAyNS4xIDQ0IDU2YzAgMjQuNyAxNi4yIDQ1LjggMzguNSA1Mi45TDEwMCAxMzhsLTE3LjUtMjkuMUM2MC4yIDEwMS44IDQ0IDgwLjcgNDQgNTZjMC0zMC45IDI1LjEtNTYgNTYtNTZ6IiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiLz48L3N2Zz4=')] 
+            after:opacity-0 after:transition-opacity after:duration-300 hover:after:opacity-100"
             onClick={handleConsultation}
           >
-            Book a Free Consultation
+            <span className="relative z-10">Book a Free Website Consultation</span>
           </Button>
         </div>
       </div>
