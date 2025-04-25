@@ -24,19 +24,17 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            <span className="block text-white mb-3">Lawrence Baatjies</span>
+            <span className="block text-white mb-3">Dev Labs</span>
             <span className="text-[#1bd095] text-2xl md:text-3xl font-light block mb-6">
-              Web Developer & Digital Creator
+              Digital DNA for the Next Generation
             </span>
             <span className="hidden md:block text-lg font-normal text-gray-200">
-              Crafting Digital Experiences That{" "}
-              <span className="text-[#1bd095] font-semibold">Inspire</span>
+              Where Code Meets <span className="text-[#1bd095] font-semibold">Intelligence</span>
             </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8">
-            I build websites and applications that help businesses grow and
-            succeed online.<br className="hidden md:block" />
-            Let's create your next project together.
+            We build cutting-edge digital solutions that help businesses transform and thrive in the digital landscape.<br className="hidden md:block" />
+            Let's create your next innovative project together.
           </p>
           <Button
             className="bg-[#1bd095] hover:bg-[#14ad78] text-white px-8 py-6 rounded-md text-lg font-medium transition-all transform hover:scale-105 shadow-lg"

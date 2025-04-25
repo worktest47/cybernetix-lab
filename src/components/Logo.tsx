@@ -18,8 +18,9 @@ const Logo: React.FC = () => {
         className="rounded-full w-10 h-10 flex items-center justify-center transition-transform hover:scale-105"
         style={{ backgroundColor: mainColor }}
       >
-        <span className="text-lg font-bold text-white">LB</span>
+        <span className="text-lg font-bold text-white">DL</span>
       </div>
+      <span className="ml-2 text-xl font-bold">Dev Labs</span>
     </button>
   );
 };
