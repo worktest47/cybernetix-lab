@@ -7,9 +7,9 @@ const About = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-4">About CyberNetix Lab</h2>
+            <h2 className="text-3xl font-bold mb-4">About CyberNetix </h2>
             <p className="text-gray-600 mb-4">
-              At CyberNetix Lab, we're passionate about creating digital solutions that make a real impact. Our team of developers, designers, and strategists work together to build innovative applications that help businesses thrive in today's competitive landscape.
+              At CyberNetix , we're passionate about creating digital solutions that make a real impact. Our team of developers, designers, and strategists work together to build innovative applications that help businesses thrive in today's competitive landscape.
             </p>
             <p className="text-gray-600 mb-4">
               With expertise in the latest technologies and a focus on quality, we deliver solutions that are not only functional but also scalable, secure, and user-friendly.
