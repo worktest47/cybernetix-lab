@@ -5,15 +5,15 @@ const TechStack = () => {
   const technologies = [
     {
       title: "Frontend",
-      items: ["React / Next.js", "Vue / Nuxt.js", "Tailwind CSS", "TypeScript"]
+      items: ["React / Next.js", "Vue / Next.js", "Tailwind CSS", "TypeScript"]
     },
     {
       title: "Backend",
-      items: ["Node.js", "Python", "PHP / Laravel", "Java Spring"]
+      items: ["Node.js", "", " / Express.js", "Lovable.Ai"]
     },
     {
       title: "Database",
-      items: ["PostgreSQL", "MongoDB", "Firebase", "Redis"]
+      items: ["PostgreSQL", "MongoDB", "Firebase", "Superbase"]
     },
     {
       title: "DevOps",
