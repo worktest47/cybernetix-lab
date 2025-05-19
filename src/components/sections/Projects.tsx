@@ -17,6 +17,21 @@ const Projects = () => {
       title: "Real Estate Portal",
       description: "Property listing platform with virtual tours and comprehensive search functionality.",
       tech: "Vue.js, Laravel, MySQL"
+    },
+    {
+      title: "Real Estate Portal",
+      description: "Property listing platform with virtual tours and comprehensive search functionality.",
+      tech: "Vue.js, Laravel, MySQL"
+    },
+    {
+      title: "Real Estate Portal",
+      description: "Property listing platform with virtual tours and comprehensive search functionality.",
+      tech: "Vue.js, Laravel, MySQL"
+    },
+    {
+      title: "Real Estate Portal",
+      description: "Property listing platform with virtual tours and comprehensive search functionality.",
+      tech: "Vue.js, Laravel, MySQL"
     }
   ];
 
