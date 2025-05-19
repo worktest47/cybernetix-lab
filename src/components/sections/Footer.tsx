@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <Logo />
-            <p className="text-gray-300 mt-4">
+            <p className="text-gray-200 mt-4">
               Digital DNA for the Next Generation, Where Code Meets Intelligence.
             </p>
           </div>
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 pt-8 text-center">
-          <p>© {new Date().getFullYear()} CyberNetix Lab. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CyberNetix. All rights reserved.</p>
         </div>
       </div>
     </footer>
