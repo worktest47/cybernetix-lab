@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
-            <ScrambledText tag="span" text="CyberNetix Lab" className="block text-white mb-3" />
+            <ScrambledText tag="span" text="CyberNetix" className="block text-white mb-3" />
             <span className="text-[#1bd095] text-3xl md:text-4xl font-light block mb-6 font-mono">
               {displayText}
             </span>
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
             after:opacity-0 after:transition-opacity after:duration-300 hover:after:opacity-100"
             onClick={handleConsultation}
           >
-            <span className="relative z-10">Book a Free Website Consultation</span>
+            <span className="relative z-10">Book a Free Website Consultation </span>
           </Button>
         </div>
       </div>
