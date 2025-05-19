@@ -17,7 +17,7 @@ const ContactInfo = () => {
           </div>
           <div>
             <h3 className="text-lg font-medium">Email</h3>
-            <a href="mailto:info@devlabs.com" className="text-[#1bd095] hover:underline">info@devlabs.com</a>
+            <a href="mailto:cybernetixlab@gmail.com" className="text-[#1bd095] hover:underline">cybernetixlab@gmail.com</a>
           </div>
         </div>
         
@@ -27,7 +27,7 @@ const ContactInfo = () => {
           </div>
           <div>
             <h3 className="text-lg font-medium">Phone</h3>
-            <p className="text-gray-600">+27 12 345 6789</p>
+            <p className="text-gray-600">+27 76815 2463</p>
           </div>
         </div>
       </div>
