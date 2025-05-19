@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 interface ScrambledTextProps {
   text: string;
   className?: string;
-  tag?: 'h1' | 'h2' | 'h3' | 'span' | 'p';
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' |'span' | 'p';
 }
 
 const ScrambledText: React.FC<ScrambledTextProps> = ({ text, className = '', tag: Tag = 'span' }) => {
