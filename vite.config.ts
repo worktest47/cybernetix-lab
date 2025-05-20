@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
-  base:"https://worktest47.github.io/cybernetix-lab",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
